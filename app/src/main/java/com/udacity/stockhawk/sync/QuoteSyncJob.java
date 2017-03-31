@@ -74,6 +74,10 @@ public final class QuoteSyncJob {
                     continue;
                 }
 
+                if (quote.getPrice() == null) continue;
+                if (quote.getChange() == null) continue;
+                if (quote.getChangeInPercent() == null) continue;
+
                 float price = quote.getPrice().floatValue();
                 float change = quote.getChange().floatValue();
                 float percentChange = quote.getChangeInPercent().floatValue();
