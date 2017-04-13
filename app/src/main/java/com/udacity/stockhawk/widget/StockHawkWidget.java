@@ -6,7 +6,6 @@ import android.content.Context;
 import android.widget.RemoteViews;
 
 import com.udacity.stockhawk.R;
-import com.udacity.stockhawk.widget.StockHawkWidgetConfigureActivity;
 
 /**
  * Implementation of App Widget functionality.

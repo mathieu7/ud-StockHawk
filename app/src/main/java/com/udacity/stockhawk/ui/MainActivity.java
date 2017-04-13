@@ -1,6 +1,7 @@
 package com.udacity.stockhawk.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -46,8 +47,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onClick(String symbol) {
-        //TODO: Add new activity to display Stock ticker.
         Timber.d("Symbol clicked: %s", symbol);
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(DetailActivity.STOCK_SYMBOL_EXTRA, symbol);
+        startActivity(intent);
     }
 
     @Override
@@ -117,7 +120,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     void addStock(String symbol) {
         if (symbol != null && !symbol.isEmpty()) {
-
             if (networkUp()) {
                 swipeRefreshLayout.setRefreshing(true);
             } else {
